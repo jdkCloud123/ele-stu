@@ -32,7 +32,8 @@ export default tseslint.config(
             lang: 'ts'
           }
         }
-      ]
+      ],
+      'comma-dangle': ['error', 'always-multiline']
     }
   },
   eslintConfigPrettier
