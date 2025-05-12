@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import log from '../utils/log'
 
 function createWindow(): void {
   // Create the browser window.
@@ -50,9 +51,14 @@ app.whenReady().then(() => {
   })
 
   // IPC test
-  ipcMain.on('ping', () => console.log('pong'))
+  ipcMain.on('ping', () => log.info('pong'))
 
   createWindow()
+  log.info('App started')
+  log.info('App version:', app.getVersion())
+  log.info('App path:', app.getPath('userData'))
+  log.info('App name:', app.getName())
+  log.info('App is packaged:', app.isPackaged)
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the

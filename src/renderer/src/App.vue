@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import log from 'electron-log/renderer'
 import Versions from './components/Versions.vue'
 
-const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+const ipcHandle = (): void => {
+  log.info('ping sent')
+  window.electron.ipcRenderer.send('ping')
+}
 </script>
 
 <template>

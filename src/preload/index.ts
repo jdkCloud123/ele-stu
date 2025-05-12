@@ -1,4 +1,5 @@
 import { contextBridge } from 'electron'
+import 'electron-log/preload'
 import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
